@@ -1,14 +1,21 @@
 import { useState } from "react"
 
-const games = [
-  { id: 1, title: "The Battle for Wesnoth" },
-  { id: 2, title: "Halo 3" },
-  { id: 3, title: "Terraria" },
+const arrGames = [
+  "The Battle for Wesnoth",
+  "Halo 3",
+  "Terraria"
 ]
 
 function App() {
 
-  const [newGame, SetNewGame] = useState("Castelvania")
+  const [games, SetGames] = useState(arrGames)
+  const [newGame, SetNewGame] = useState("")
+
+  const addGame = (e) => {
+    e.preventDefault()
+    SetGames([...games, newGame]);
+    SetNewGame("")
+  }
 
   return (
     <>
@@ -19,8 +26,8 @@ function App() {
         <main>
           <div className="list-container">
             <ul>
-              {games.map((item) => (
-                <li key={item.id}>{item.title}</li>
+              {games.map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
             </ul>
           </div>
@@ -33,7 +40,6 @@ function App() {
         </main>
       </div>
     </>
-
   )
 }
 
