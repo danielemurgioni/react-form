@@ -20,6 +20,12 @@ function App() {
               ))}
             </ul>
           </div>
+          <div className="form-container">
+            <form>
+              <input type="text" placeholder="Inserisci un videogioco" />
+              <button>Aggiungi</button>
+            </form>
+          </div>
         </main>
       </div>
     </>
