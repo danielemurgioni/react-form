@@ -1,11 +1,15 @@
+import { useState } from "react"
+
 const games = [
   { id: 1, title: "The Battle for Wesnoth" },
   { id: 2, title: "Halo 3" },
   { id: 3, title: "Terraria" },
 ]
 
-
 function App() {
+
+  const [newGame, SetNewGame] = useState("Castelvania")
+
   return (
     <>
       <div className="container">
@@ -21,8 +25,8 @@ function App() {
             </ul>
           </div>
           <div className="form-container">
-            <form>
-              <input type="text" placeholder="Inserisci un videogioco" />
+            <form onSubmit={addGame}>
+              <input type="text" placeholder="Inserisci un videogioco" value={newGame} onChange={(e) => SetNewGame(e.target.value)} />
               <button>Aggiungi</button>
             </form>
           </div>
