@@ -4,8 +4,27 @@ const games = [
   { id: 3, title: "Terraria" },
 ]
 
+
 function App() {
-  return <h1>react form</h1>
+  return (
+    <>
+      <div className="container">
+        <header>
+          <h1>react form</h1>
+        </header>
+        <main>
+          <div className="list-container">
+            <ul>
+              {games.map((item) => (
+                <li key={item.id}>{item.title}</li>
+              ))}
+            </ul>
+          </div>
+        </main>
+      </div>
+    </>
+
+  )
 }
 
 export default App
